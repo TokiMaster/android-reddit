@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">reddit-clone-android</string>
+    <string name="app_name">Reddit clone</string>
+    <string name="welcome">Welcome!</string>
+    <string name="action_2">Comments</string>
+    <string name="action_1">Button1</string>
+    <string name="secondary_text">Description</string>
+    <string name="content_description_media">Image</string>
 </resources>
