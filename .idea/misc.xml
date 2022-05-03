@@ -3,9 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/druga godina/cetvrti semestar/mobilne aplikacije/sr23-2020-ma-reddit/app/src/main/res/drawable/border.xml" value="0.2255" />
         <entry key="..\:/druga godina/cetvrti semestar/mobilne aplikacije/sr23-2020-ma-reddit/app/src/main/res/drawable/ic_launcher_background.xml" value="0.204" />
+        <entry key="..\:/druga godina/cetvrti semestar/mobilne aplikacije/sr23-2020-ma-reddit/app/src/main/res/drawable/ic_menu_24dp.xml" value="0.1535" />
         <entry key="..\:/druga godina/cetvrti semestar/mobilne aplikacije/sr23-2020-ma-reddit/app/src/main/res/drawable/test_picture.xml" value="0.2255" />
-        <entry key="..\:/druga godina/cetvrti semestar/mobilne aplikacije/sr23-2020-ma-reddit/app/src/main/res/layout/main_activity.xml" value="0.20199275362318841" />
+        <entry key="..\:/druga godina/cetvrti semestar/mobilne aplikacije/sr23-2020-ma-reddit/app/src/main/res/layout/main_activity.xml" value="0.264" />
+        <entry key="..\:/druga godina/cetvrti semestar/mobilne aplikacije/sr23-2020-ma-reddit/app/src/main/res/layout/second_activity.xml" value="0.2427536231884058" />
+        <entry key="..\:/druga godina/cetvrti semestar/mobilne aplikacije/sr23-2020-ma-reddit/app/src/main/res/menu/top_app_bar.xml" value="0.275" />
       </map>
     </option>
   </component>

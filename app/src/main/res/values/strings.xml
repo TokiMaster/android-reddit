@@ -5,4 +5,10 @@
     <string name="action_1">Button1</string>
     <string name="secondary_text">Description</string>
     <string name="content_description_media">Image</string>
+    <string name="lorem">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Diam quis enim lobortis scelerisque fermentum dui faucibus. Senectus et netus et malesuada fames ac. Nulla pharetra diam sit amet nisl suscipit. Nulla aliquet enim tortor at auctor urna nunc. Enim ut tellus elementum sagittis vitae et leo."</string>
+    <string name="loremS">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</string>
+    <string name="page_title">Reddit</string>
+    <string name="favorite">Favorite</string>
+    <string name="search">Search</string>
+    <string name="more">More</string>
 </resources>
