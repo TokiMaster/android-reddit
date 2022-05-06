@@ -1,4 +1,4 @@
-package fragments;
+package com.example.reddit_clone_android.fragments;
 
 
 import androidx.fragment.app.Fragment;

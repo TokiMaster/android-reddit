@@ -1,8 +1,7 @@
 <resources>
     <string name="app_name">Reddit clone</string>
     <string name="welcome">Welcome!</string>
-    <string name="action_2">Comments</string>
-    <string name="action_1">Button1</string>
+    <string name="action_1">Comments</string>
     <string name="secondary_text">Description</string>
     <string name="content_description_media">Image</string>
     <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Diam quis enim lobortis scelerisque fermentum dui faucibus. Senectus et netus et malesuada fames ac. Nulla pharetra diam sit amet nisl suscipit. Nulla aliquet enim tortor at auctor urna nunc. Enim ut tellus elementum sagittis vitae et leo.</string>
@@ -11,4 +10,21 @@
     <string name="favorite">Favorite</string>
     <string name="search">Search</string>
     <string name="more">More</string>
+    <string name="drawer_header_text">Reddit</string>
+    <string name="nav_item_attachment">Attachment</string>
+    <string name="nav_item_images">Images</string>
+    <string name="nav_item_location">Location</string>
+    <string name="nav_sub_menu">Sub Menu</string>
+    <string name="nav_sub_menu_item01">Item1</string>
+    <string name="nav_sub_menu_item02">Item 2</string>
+    <string name="action_settings">Settings</string>
+    <string name="home_page">Home page</string>
+    <string name="communities">Communities</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="username">Username</string>
+    <string name="content_description_end_icon">\@</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="about">About yourself</string>
 </resources>

@@ -1,4 +1,4 @@
-package model;
+package com.example.reddit_clone_android.model;
 
 public class Post {
     private int avatar;
