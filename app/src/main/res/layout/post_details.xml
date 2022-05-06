@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
@@ -19,17 +19,18 @@
             android:padding="5dp">
 
             <ImageView
+                android:id="@+id/avatar"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:layout_weight="1"
-                android:src="@drawable/ic_launcher_background" />
+                android:src="@drawable/ic_launcher_foreground"
+                android:layout_weight="1" />
 
             <TextView
+                android:id="@+id/username"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_weight="10"
-                android:text="@string/secondary_text"
                 android:textAppearance="?attr/textAppearanceBody2"
                 android:textColor="@color/white" />
         </LinearLayout>
@@ -48,19 +49,20 @@
         </LinearLayout>
 
         <ImageView
-            android:id="@+id/details"
-            android:layout_width="wrap_content"
-            android:layout_height="350dp"
+            android:id="@+id/photo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:scaleType="centerCrop"
+            android:src="@drawable/proba"
             android:contentDescription="@string/content_description_media" />
 
 
-            <com.google.android.material.button.MaterialButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:text="@string/action_1"
-                style="?attr/borderlessButtonStyle" />
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="@string/action_1"
+            style="?attr/borderlessButtonStyle" />
     </LinearLayout>
 
-</LinearLayout>
+</ScrollView>

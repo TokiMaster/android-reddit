@@ -8,23 +8,20 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class SecondActivity extends AppCompatActivity {
+public class DetailActivity extends AppCompatActivity {
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.post_map);
+        setContentView(R.layout.post_details);
         Intent intent = getIntent();
+        String username = intent.getStringExtra("username");
         String text = intent.getStringExtra("description");
+        TextView usernameT = findViewById(R.id.username);
         TextView textView = findViewById(R.id.description);
         ImageView imageView = findViewById(R.id.photo);
-        imageView.setImageResource(intent.getIntExtra("img", 0));
+        usernameT.setText(username);
         textView.setText(text);
-//        if(getIntent().hasExtra("byteArray")) {
-//            ImageView imageView = findViewById(R.id.details);
-//            Bitmap _bitmap = BitmapFactory.decodeByteArray(
-//                    getIntent().getByteArrayExtra("byteArray"),0,getIntent().getByteArrayExtra("byteArray").length);
-//            imageView.setImageBitmap(_bitmap);
-//        }
-
+        imageView.setImageResource(intent.getIntExtra("img", 0));
     }
 }

@@ -14,27 +14,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.ByteArrayOutputStream;
 
+import fragments.FragmentTransition;
+import fragments.PostFragments;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
-        Button button = findViewById(R.id.comment);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                TextView textView = findViewById(R.id.description);
-                String text = textView.getText().toString();
-                ImageView imageView = findViewById(R.id.details);
-//                imageView.invalidate();
-//                BitmapDrawable drawable = (BitmapDrawable) imageView.getDrawable();
-//                Bitmap _bitmap = drawable.getBitmap();
-                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
-                intent.putExtra("description", text);
-                intent.putExtra("img", R.drawable.test);
-                startActivity(intent);
-            }
-        });
+        FragmentTransition.to(PostFragments.newInstance(), this, false);
     }
 }
