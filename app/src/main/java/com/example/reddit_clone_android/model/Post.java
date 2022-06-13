@@ -1,18 +1,8 @@
 package com.example.reddit_clone_android.model;
 
 public class Post {
-    private int avatar;
     private String username;
-    private String description;
-    private int img;
-
-    public int getAvatar() {
-        return avatar;
-    }
-
-    public void setAvatar(int avatar) {
-        this.avatar = avatar;
-    }
+    private String text;
 
     public String getUsername() {
         return username;
@@ -22,26 +12,16 @@ public class Post {
         this.username = username;
     }
 
-    public String getDescription() {
-        return description;
+    public String getText() {
+        return text;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setText(String text) {
+        this.text = text;
     }
 
-    public int getImg() {
-        return img;
-    }
-
-    public void setImg(int img) {
-        this.img = img;
-    }
-
-    public Post(int avatar, String username, String description, int img) {
-        this.avatar = avatar;
+    public Post(String username, String text) {
         this.username = username;
-        this.description = description;
-        this.img = img;
+        this.text = text;
     }
 }

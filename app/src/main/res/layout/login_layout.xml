@@ -48,12 +48,18 @@
             android:background="@color/grey" />
 
     </com.google.android.material.textfield.TextInputLayout>
-
-    <Button
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/login"
-        android:layout_gravity="center"
-        android:layout_margin="5dp" />
-
+        android:layout_weight="1">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/login"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_alignParentBottom="true"/>
+    </RelativeLayout>
 </LinearLayout>

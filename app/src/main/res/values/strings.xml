@@ -25,6 +25,6 @@
     <string name="username">Username</string>
     <string name="content_description_end_icon">\@</string>
     <string name="password">Password</string>
-    <string name="email">Email</string>
-    <string name="about">About yourself</string>
+    <string name="displayName">Display name</string>
+    <string name="description">Description</string>
 </resources>

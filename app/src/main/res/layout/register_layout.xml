@@ -27,7 +27,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textEmailAddress"
+            android:inputType="text"
             android:background="@color/grey"
             />
 
@@ -53,14 +53,14 @@
         android:id="@+id/email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/email"
+        android:hint="@string/displayName"
         app:startIconDrawable="@drawable/outline_email_black_24"
         app:startIconContentDescription="@string/content_description_end_icon">
 
     <com.google.android.material.textfield.TextInputEditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
+        android:inputType="text"
         android:background="@color/grey"
         />
     </com.google.android.material.textfield.TextInputLayout>
@@ -69,7 +69,7 @@
         android:id="@+id/about"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/about"
+        android:hint="@string/description"
         app:startIconDrawable="@drawable/outline_description_black_24"
         app:startIconContentDescription="@string/content_description_end_icon">
 
@@ -81,11 +81,18 @@
             />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/register"
-        android:layout_gravity="center"
-        android:layout_margin="5dp" />
+        android:layout_weight="1">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/register"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_alignParentBottom="true"/>
 
+    </RelativeLayout>
 </LinearLayout>
