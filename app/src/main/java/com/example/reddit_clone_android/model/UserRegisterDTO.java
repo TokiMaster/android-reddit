@@ -7,6 +7,14 @@ public class UserRegisterDTO {
     private String email;
     private String displayName;
 
+    @Override
+    public String toString() {
+        return  "username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", displayName='" + displayName + '\'';
+    }
+
     public UserRegisterDTO() {
     }
 

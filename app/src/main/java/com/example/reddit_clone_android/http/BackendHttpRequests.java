@@ -24,8 +24,7 @@ public class BackendHttpRequests {
             return instance;
         }
     };
-
-
+    
     public BackendHttpRequests(){
         HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
         logging.setLevel(HttpLoggingInterceptor.Level.BODY);

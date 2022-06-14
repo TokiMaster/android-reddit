@@ -20,6 +20,7 @@
     <string name="action_settings">Settings</string>
     <string name="home_page">Home page</string>
     <string name="communities">Communities</string>
+    <string name="createPost">Create post</string>
     <string name="login">Login</string>
     <string name="register">Register</string>
     <string name="username">Username</string>
@@ -27,4 +28,8 @@
     <string name="password">Password</string>
     <string name="displayName">Display name</string>
     <string name="description">Description</string>
+    <string name="email">Email</string>
+    <string name="publish">Publish</string>
+    <string name="title">Title</string>
+    <string name="text">Text</string>
 </resources>

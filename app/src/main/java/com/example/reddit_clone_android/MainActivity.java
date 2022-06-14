@@ -41,8 +41,9 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(new Intent(MainActivity.this, LoginActivity.class));
                 }else if(menuItem.getTitle().equals("Register")){
                     startActivity(new Intent(MainActivity.this, RegisterActivity.class));
+                }else if (menuItem.getTitle().equals("Create post")){
+                    startActivity(new Intent(MainActivity.this, CreatePostActivity.class));
                 }
-                Toast.makeText(MainActivity.this, menuItem.getTitle(), Toast.LENGTH_LONG).show();
                 return true;
             }
         });

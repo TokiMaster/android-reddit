@@ -10,7 +10,7 @@
         <item
             android:id="@+id/communities"
             android:icon="@drawable/ic_action_group"
-            android:title="@string/communities" />
+            android:title="@string/createPost" />
     </group>
 
     <item android:title="@string/nav_sub_menu">
