@@ -97,8 +97,8 @@
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:layout_marginBottom="10dp"
-            android:text="@string/register"
-            android:onClick="confirmInput"/>
+            android:onClick="confirmInput"
+            android:text="@string/register" />
 
     </RelativeLayout>
 </LinearLayout>

@@ -1,7 +1,12 @@
 package com.example.reddit_clone_android;
 
+import static java.security.AccessController.getContext;
+
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 
 import androidx.annotation.Nullable;
@@ -58,7 +63,10 @@ public class CreatePostActivity extends AppCompatActivity {
         CreatePostDTO createPostDTO = new CreatePostDTO(title.getEditText().getText().toString().trim(),
                 text.getEditText().getText().toString().trim());
 
-        Call<CreatePostDTO> createPostDTOCall = BackendHttpRequests.getInstance().getPostService().createPost(createPostDTO);
+        SharedPreferences preferences = getSharedPreferences("nesto",Context.MODE_PRIVATE);
+        String jwt = preferences.getString(String.valueOf(R.string.jwt), "");
+        System.out.println("TOKEN: " + jwt);
+        Call<CreatePostDTO> createPostDTOCall = BackendHttpRequests.getInstance().getPostService().createPost(jwt, createPostDTO);
         createPostDTOCall.enqueue(new Callback<CreatePostDTO>() {
             @Override
             public void onResponse(Call<CreatePostDTO> call, Response<CreatePostDTO> response) {

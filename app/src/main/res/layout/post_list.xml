@@ -21,13 +21,24 @@
             android:padding="5dp">
 
             <TextView
-                android:id="@+id/username"
+                android:id="@+id/titleGet"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_weight="10"
                 android:textAppearance="?attr/textAppearanceBody2"
                 android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:textAppearance="?attr/textAppearanceBody2"
+                android:textColor="@color/white" />
+
+
         </LinearLayout>
 
         <LinearLayout

@@ -1,5 +1,6 @@
 package com.example.reddit_clone_android.http;
 
+import com.example.reddit_clone_android.model.UserLoginDTO;
 import com.example.reddit_clone_android.model.UserRegisterDTO;
 
 import retrofit2.Call;
@@ -10,5 +11,8 @@ public interface UserService {
 
     @POST("api/users/register")
     Call<UserRegisterDTO> register(@Body UserRegisterDTO userRegisterDTO);
+
+    @POST("api/users/login")
+    Call<String> login(@Body UserLoginDTO userLoginDTO);
 
 }

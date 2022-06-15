@@ -15,7 +15,7 @@ public class CreatePostDTO {
         this.communityId = 1L;
         this.title = title;
         this.text = text;
-        this.username = "Toki";
+//        this.username = "Toki";
     }
 
     public CreatePostDTO(Long communityId, String title, String text, String username) {

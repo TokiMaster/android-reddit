@@ -56,9 +56,11 @@ public class PostAdapter extends BaseAdapter {
 
         TextView username = vi.findViewById(R.id.username);
         TextView description = vi.findViewById(R.id.description);
+        TextView titleGet = vi.findViewById(R.id.titleGet);
 
         username.setText(post.getUsername());
         description.setText(post.getText());
+        titleGet.setText(post.getTitle());
 
         return vi;
     }

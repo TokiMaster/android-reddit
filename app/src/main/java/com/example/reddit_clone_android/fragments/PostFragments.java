@@ -9,6 +9,7 @@ import android.widget.ListView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.ListFragment;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.reddit_clone_android.R;
 
@@ -30,12 +31,36 @@ public class PostFragments extends ListFragment {
     }
     List<Post> posts = new ArrayList<>();
     PostAdapter postAdapter;
+    private SwipeRefreshLayout mSwipeRefreshLayout;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setHasOptionsMenu(true);
-        return inflater.inflate(R.layout.post_map, container, false);
+        View view = inflater.inflate(R.layout.post_map, container, false);
+        mSwipeRefreshLayout = view.findViewById(R.id.swipeRefresh);
+        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                Call<List<Post>> posts = BackendHttpRequests.getInstance().getPostService().getAllPosts();
+                posts.enqueue(new Callback<List<Post>>() {
+                    @Override
+                    public void onResponse(Call<List<Post>> call, Response<List<Post>> response) {
+                        if(response.isSuccessful()){
+                            postAdapter.setPosts(response.body());
+                            postAdapter.notifyDataSetChanged();
+                        }
+                        mSwipeRefreshLayout.setRefreshing(false);
+                    }
+
+                    @Override
+                    public void onFailure(Call<List<Post>> call, Throwable t) {
+                        mSwipeRefreshLayout.setRefreshing(false);
+                    }
+                });
+            }
+        });
+        return view;
     }
 
     @Override
