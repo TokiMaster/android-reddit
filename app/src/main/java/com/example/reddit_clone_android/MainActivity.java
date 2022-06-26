@@ -13,6 +13,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.example.reddit_clone_android.fragments.CommunityFragment;
 import com.example.reddit_clone_android.fragments.FragmentTransition;
 import com.example.reddit_clone_android.fragments.PostFragments;
 import com.google.android.material.navigation.NavigationView;
@@ -43,6 +44,10 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(new Intent(MainActivity.this, RegisterActivity.class));
                 }else if (menuItem.getTitle().equals("Create post")){
                     startActivity(new Intent(MainActivity.this, CreatePostActivity.class));
+                }else if (menuItem.getTitle().equals("Create community")){
+                    startActivity(new Intent(MainActivity.this, CreateCommunityActivity.class));
+                }else if (menuItem.getTitle().equals("Communities")){
+                    FragmentTransition.to(CommunityFragment.newInstance(), MainActivity.this, false);
                 }
                 return true;
             }

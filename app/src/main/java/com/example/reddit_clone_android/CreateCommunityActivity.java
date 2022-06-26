@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.reddit_clone_android.http.BackendHttpRequests;
+import com.example.reddit_clone_android.model.CreateCommunityDTO;
 import com.example.reddit_clone_android.model.CreatePostDTO;
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -17,7 +18,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class CreatePostActivity extends AppCompatActivity {
+public class CreateCommunityActivity extends AppCompatActivity {
 
     private TextInputLayout title;
     private TextInputLayout text;
@@ -25,9 +26,9 @@ public class CreatePostActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.create_post);
-        title = findViewById(R.id.titleTXT);
-        text = findViewById(R.id.descriptionTXT);
+        setContentView(R.layout.create_community);
+        title = findViewById(R.id.name);
+        text = findViewById(R.id.descriptionComm);
     }
 
     private boolean validateTitle(){
@@ -57,23 +58,23 @@ public class CreatePostActivity extends AppCompatActivity {
             return;
         }
 
-        CreatePostDTO createPostDTO = new CreatePostDTO(title.getEditText().getText().toString().trim(),
+        CreateCommunityDTO createCommunityDTO = new CreateCommunityDTO(title.getEditText().getText().toString().trim(),
                 text.getEditText().getText().toString().trim());
 
-        SharedPreferences preferences = getSharedPreferences("nesto",Context.MODE_PRIVATE);
+        SharedPreferences preferences = getSharedPreferences("nesto", Context.MODE_PRIVATE);
         String jwt = preferences.getString(String.valueOf(R.string.jwt), "");
         System.out.println("TOKEN: " + jwt);
-        Call<CreatePostDTO> createPostDTOCall = BackendHttpRequests.getInstance().getPostService().createPost(jwt, createPostDTO);
-        createPostDTOCall.enqueue(new Callback<CreatePostDTO>() {
+        Call<CreateCommunityDTO> createPostDTOCall = BackendHttpRequests.getInstance().getCommunityService().createCommunity(jwt, createCommunityDTO);
+        createPostDTOCall.enqueue(new Callback<CreateCommunityDTO>() {
             @Override
-            public void onResponse(Call<CreatePostDTO> call, Response<CreatePostDTO> response) {
+            public void onResponse(Call<CreateCommunityDTO> call, Response<CreateCommunityDTO> response) {
                 if(response.isSuccessful()){
-                    startActivity(new Intent(CreatePostActivity.this, MainActivity.class));
+                    startActivity(new Intent(CreateCommunityActivity.this, MainActivity.class));
                 }
             }
 
             @Override
-            public void onFailure(Call<CreatePostDTO> call, Throwable t) {
+            public void onFailure(Call<CreateCommunityDTO> call, Throwable t) {
 
             }
         });
