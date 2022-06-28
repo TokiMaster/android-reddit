@@ -21,7 +21,6 @@ public class Post {
         this.text = text;
     }
 
-
     public String getTitle() {
         return title;
     }

@@ -1,22 +1,21 @@
 package com.example.reddit_clone_android.model;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 
 public class CommunityDTO {
 
     private Long id;
     private String name;
     private String description;
-    private LocalDateTime creationDate;
 
     public CommunityDTO() {
     }
 
-    public CommunityDTO(Long id, String name, String description, LocalDateTime creationDate) {
+    public CommunityDTO(Long id, String name, String description) {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.creationDate = creationDate;
     }
 
     public Long getId() {
@@ -43,11 +42,4 @@ public class CommunityDTO {
         this.description = description;
     }
 
-    public LocalDateTime getCreationDate() {
-        return creationDate;
-    }
-
-    public void setCreationDate(LocalDateTime creationDate) {
-        this.creationDate = creationDate;
-    }
 }

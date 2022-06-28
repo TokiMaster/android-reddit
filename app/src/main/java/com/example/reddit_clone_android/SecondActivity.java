@@ -6,7 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
@@ -15,19 +15,45 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.example.reddit_clone_android.fragments.CommunitiesPostsFragment;
 import com.example.reddit_clone_android.fragments.CommunityFragment;
 import com.example.reddit_clone_android.fragments.FragmentTransition;
 import com.example.reddit_clone_android.fragments.PostFragments;
+import com.example.reddit_clone_android.http.BackendHttpRequests;
+import com.example.reddit_clone_android.model.CommunityDTO;
 import com.google.android.material.navigation.NavigationView;
 
-public class MainActivity extends AppCompatActivity {
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+public class SecondActivity extends AppCompatActivity {
 
     private DrawerLayout mDrawerLayout;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main_activity);
+        setContentView(R.layout.community);
+        Intent intent = getIntent();
+        Long id = intent.getLongExtra("id", 0);
+        Call<CommunityDTO> communityDTOCall = BackendHttpRequests.getInstance().getCommunityService().findCommunity(id);
+        communityDTOCall.enqueue(new Callback<CommunityDTO>() {
+            @Override
+            public void onResponse(Call<CommunityDTO> call, Response<CommunityDTO> response) {
+                if(response.isSuccessful()){
+                    TextView textView = findViewById(R.id.communityName);
+                    CommunityDTO communityDTO = response.body();
+                    textView.setText(communityDTO.getName());
+                    FragmentTransition.to(CommunitiesPostsFragment.newInstance(), SecondActivity.this, false);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<CommunityDTO> call, Throwable t) {
+
+            }
+        });
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
@@ -39,27 +65,22 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(MenuItem menuItem) {
                 mDrawerLayout.closeDrawers();
-//                int id = menuItem.getItemId();
-                SharedPreferences preferences = getSharedPreferences("nesto", Context.MODE_PRIVATE);
                 if(menuItem.getTitle().equals("Home")){
-                    FragmentTransition.to(PostFragments.newInstance(), MainActivity.this, false);
+                    FragmentTransition.to(PostFragments.newInstance(), SecondActivity.this, false);
                 }else if(menuItem.getTitle().equals("Login")){
-                    startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                    startActivity(new Intent(SecondActivity.this, LoginActivity.class));
                 }else if(menuItem.getTitle().equals("Register")){
-                    startActivity(new Intent(MainActivity.this, RegisterActivity.class));
+                    startActivity(new Intent(SecondActivity.this, RegisterActivity.class));
                 }else if(menuItem.getTitle().equals("Create post")){
-                    startActivity(new Intent(MainActivity.this, CreatePostActivity.class));
+                    startActivity(new Intent(SecondActivity.this, CreatePostActivity.class));
                 }else if(menuItem.getTitle().equals("Create community")){
-                    startActivity(new Intent(MainActivity.this, CreateCommunityActivity.class));
+                    startActivity(new Intent(SecondActivity.this, CreateCommunityActivity.class));
                 }else if(menuItem.getTitle().equals("Communities")){
-                    FragmentTransition.to(CommunityFragment.newInstance(), MainActivity.this, false);
+                    FragmentTransition.to(CommunityFragment.newInstance(), SecondActivity.this, false);
                 }
-//                else if(preferences.getString("jwt", "") != null){
-//                }
                 return true;
             }
         });
-        FragmentTransition.to(PostFragments.newInstance(), this, false);
     }
 
     @Override
@@ -83,4 +104,5 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
 }

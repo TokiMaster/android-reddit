@@ -34,4 +34,8 @@
         </menu>
     </item>
 
+    <item android:title="Logout"
+        android:id="@+id/logout"
+        android:visible="false"/>
+
 </menu>

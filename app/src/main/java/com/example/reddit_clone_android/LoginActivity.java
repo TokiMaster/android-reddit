@@ -81,7 +81,9 @@ public class LoginActivity extends AppCompatActivity {
                     editor.putString(String.valueOf(R.string.jwt), response.body());
                     editor.apply();
                     System.out.println(preferences.getString("jwt", ""));
-                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    intent.putExtra("jwt", preferences.getString("jwt", ""));
+                    startActivity(intent);
                 }
             }
 

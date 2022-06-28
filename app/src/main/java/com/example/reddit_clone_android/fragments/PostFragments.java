@@ -1,9 +1,11 @@
 package com.example.reddit_clone_android.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
@@ -38,6 +40,7 @@ public class PostFragments extends ListFragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setHasOptionsMenu(true);
         View view = inflater.inflate(R.layout.post_map, container, false);
+//        String token = getActivity().getIntent().getExtras().getString("jwt");
         mSwipeRefreshLayout = view.findViewById(R.id.swipeRefresh);
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -83,6 +86,7 @@ public class PostFragments extends ListFragment {
             @Override
             public void onResponse(Call<List<Post>> call, Response<List<Post>> response) {
                 if(response.isSuccessful()){
+                    System.out.println("OCEEE");
                     postAdapter.setPosts(response.body());
                     postAdapter.notifyDataSetChanged();
                 }
@@ -90,6 +94,7 @@ public class PostFragments extends ListFragment {
 
             @Override
             public void onFailure(Call<List<Post>> call, Throwable t) {
+                System.out.println("NECEEE");
 
             }
         });

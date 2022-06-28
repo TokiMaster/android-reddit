@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.reddit_clone_android.R;
@@ -57,6 +58,10 @@ public class PostAdapter extends BaseAdapter {
         TextView username = vi.findViewById(R.id.username);
         TextView description = vi.findViewById(R.id.description);
         TextView titleGet = vi.findViewById(R.id.titleGet);
+        Button edit = vi.findViewById(R.id.button_edit);
+        edit.setText(R.string.edit);
+        Button delete = vi.findViewById(R.id.button_delete);
+        delete.setText(R.string.delete);
 
         username.setText(post.getUsername());
         description.setText(post.getText());
