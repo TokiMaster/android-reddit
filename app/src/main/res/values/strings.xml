@@ -37,4 +37,6 @@
     <string name="createCommunity">Create community</string>
     <string name="editPost">Edit post</string>
     <string name="save">Save</string>
+    <string name="upVote">upvote</string>
+    <string name="downVote">downvote</string>
 </resources>

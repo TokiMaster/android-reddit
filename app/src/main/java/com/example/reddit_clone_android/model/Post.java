@@ -5,12 +5,14 @@ public class Post {
     private String username;
     private String text;
     private String title;
+    private int karma;
 
-    public Post(Long id, String username, String text, String title) {
+    public Post(Long id, String username, String text, String title, int karma) {
         this.id = id;
         this.username = username;
         this.text = text;
         this.title = title;
+        this.karma = karma;
     }
 
     public Long getId() {
@@ -43,5 +45,13 @@ public class Post {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public int getKarma() {
+        return karma;
+    }
+
+    public void setKarma(int karma) {
+        this.karma = karma;
     }
 }

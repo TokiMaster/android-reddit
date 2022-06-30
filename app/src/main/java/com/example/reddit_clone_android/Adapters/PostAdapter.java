@@ -17,6 +17,8 @@ import com.example.reddit_clone_android.SecondActivity;
 import com.example.reddit_clone_android.http.BackendHttpRequests;
 import com.example.reddit_clone_android.model.CreatePostDTO;
 import com.example.reddit_clone_android.model.Post;
+import com.example.reddit_clone_android.model.ReactionDTO;
+import com.example.reddit_clone_android.model.ReactionType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -70,6 +72,8 @@ public class PostAdapter extends BaseAdapter {
             vi = activity.getLayoutInflater().inflate(R.layout.post_list, null);
         }
 
+        SharedPreferences preferences = getActivity().getBaseContext().getSharedPreferences("nesto", Context.MODE_PRIVATE);
+        String jwt = preferences.getString(String.valueOf(R.string.jwt), "");
         TextView username = vi.findViewById(R.id.username);
         TextView description = vi.findViewById(R.id.description);
         TextView titleGet = vi.findViewById(R.id.titleGet);
@@ -77,12 +81,19 @@ public class PostAdapter extends BaseAdapter {
         edit.setText(R.string.edit);
         Button delete = vi.findViewById(R.id.button_delete);
         delete.setText(R.string.delete);
+        TextView karma = vi.findViewById(R.id.karma);
+        karma.setText(String.valueOf(post.getKarma()));
+        Button upvote = vi.findViewById(R.id.upVote);
+        upvote.setText(R.string.upVote);
+        Button downVote = vi.findViewById(R.id.downVote);
+        downVote.setText(R.string.downVote);
+        username.setText(post.getUsername());
+        description.setText(post.getText());
+        titleGet.setText(post.getTitle());
 
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SharedPreferences preferences = getActivity().getBaseContext().getSharedPreferences("nesto", Context.MODE_PRIVATE);
-                String jwt = preferences.getString(String.valueOf(R.string.jwt), "");
                 System.out.println("TOKEN: " + jwt);
                 Call<Post> deletePost = BackendHttpRequests.getInstance().getPostService().deletePost(jwt, post.getId());
                 deletePost.enqueue(new Callback<Post>() {
@@ -108,9 +119,43 @@ public class PostAdapter extends BaseAdapter {
             }
         });
 
-        username.setText(post.getUsername());
-        description.setText(post.getText());
-        titleGet.setText(post.getTitle());
+        upvote.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ReactionDTO reactionDTO = new ReactionDTO(post.getId(), ReactionType.UPVOTE);
+                Call<Post> postCall = BackendHttpRequests.getInstance().getPostService().vote(jwt, post.getId(), reactionDTO);
+                postCall.enqueue(new Callback<Post>() {
+                    @Override
+                    public void onResponse(Call<Post> call, Response<Post> response) {
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<Post> call, Throwable t) {
+                        t.printStackTrace();
+                    }
+                });
+            }
+        });
+
+        downVote.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ReactionDTO reactionDTO = new ReactionDTO(post.getId(), ReactionType.DOWNVOTE);
+                Call<Post> postCall = BackendHttpRequests.getInstance().getPostService().vote(jwt, post.getId(), reactionDTO);
+                postCall.enqueue(new Callback<Post>() {
+                    @Override
+                    public void onResponse(Call<Post> call, Response<Post> response) {
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<Post> call, Throwable t) {
+                        t.printStackTrace();
+                    }
+                });
+            }
+        });
 
         return vi;
     }

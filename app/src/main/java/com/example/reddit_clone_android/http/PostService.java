@@ -3,6 +3,7 @@ package com.example.reddit_clone_android.http;
 import com.example.reddit_clone_android.model.CreatePostDTO;
 import com.example.reddit_clone_android.model.EditPostDTO;
 import com.example.reddit_clone_android.model.Post;
+import com.example.reddit_clone_android.model.ReactionDTO;
 
 import java.util.List;
 
@@ -31,4 +32,7 @@ public interface PostService {
 
     @PUT("api/posts/{id}")
     Call<Post> editPost(@Header("Authorization") String jwtToken, @Path("id") Long id, @Body EditPostDTO editPostDTO);
+
+    @POST("api/posts/{id}/vote")
+    Call<Post> vote(@Header("Authorization") String jwtToken, @Path("id") Long id, @Body ReactionDTO reactionDTO);
 }
