@@ -85,7 +85,6 @@ public class CommunityFragment extends ListFragment {
             @Override
             public void onResponse(Call<List<CommunityDTO>> call, Response<List<CommunityDTO>> response) {
                 if(response.isSuccessful()){
-                    System.out.println("OCEEEEEE");
                     communityAdapter.setCommunityDTOS(response.body());
                     communityAdapter.notifyDataSetChanged();
                 }

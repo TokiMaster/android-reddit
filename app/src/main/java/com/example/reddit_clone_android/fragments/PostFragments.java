@@ -1,11 +1,9 @@
 package com.example.reddit_clone_android.fragments;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
@@ -13,9 +11,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.ListFragment;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import com.example.reddit_clone_android.R;
-
 import com.example.reddit_clone_android.Adapters.PostAdapter;
+import com.example.reddit_clone_android.R;
 import com.example.reddit_clone_android.http.BackendHttpRequests;
 import com.example.reddit_clone_android.model.Post;
 
@@ -86,7 +83,6 @@ public class PostFragments extends ListFragment {
             @Override
             public void onResponse(Call<List<Post>> call, Response<List<Post>> response) {
                 if(response.isSuccessful()){
-                    System.out.println("OCEEE");
                     postAdapter.setPosts(response.body());
                     postAdapter.notifyDataSetChanged();
                 }
@@ -94,8 +90,7 @@ public class PostFragments extends ListFragment {
 
             @Override
             public void onFailure(Call<List<Post>> call, Throwable t) {
-                System.out.println("NECEEE");
-
+                t.printStackTrace();
             }
         });
     }

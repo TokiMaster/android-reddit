@@ -1,9 +1,25 @@
 package com.example.reddit_clone_android.model;
 
 public class Post {
+    private Long id;
     private String username;
     private String text;
     private String title;
+
+    public Post(Long id, String username, String text, String title) {
+        this.id = id;
+        this.username = username;
+        this.text = text;
+        this.title = title;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getUsername() {
         return username;
@@ -26,12 +42,6 @@ public class Post {
     }
 
     public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public Post(String username, String text, String title) {
-        this.username = username;
-        this.text = text;
         this.title = title;
     }
 }

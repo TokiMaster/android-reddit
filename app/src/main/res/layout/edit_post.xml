@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="@string/login"
+        android:text="@string/editPost"
         android:textSize="35dp"
         android:background="@color/grey"
         android:textColor="?attr/colorPrimary"
@@ -17,11 +17,9 @@
         android:padding="10dp"/>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/usernameLogin"
+        android:id="@+id/postDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/username"
-        app:startIconDrawable="@drawable/ic_action_person"
         app:startIconContentDescription="@string/content_description_end_icon"
         app:errorEnabled="true">
 
@@ -34,22 +32,6 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/passwordLogin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:passwordToggleEnabled="true"
-        app:startIconDrawable="@drawable/ic_lock_white_24dp"
-        app:errorEnabled="true">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:background="@color/grey"
-            android:hint="@string/password"/>
-
-    </com.google.android.material.textfield.TextInputLayout>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -57,7 +39,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/login"
+            android:text="@string/save"
             android:layout_gravity="center"
             android:layout_marginBottom="10dp"
             android:layout_marginLeft="5dp"

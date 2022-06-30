@@ -36,12 +36,7 @@ public class LoginActivity extends AppCompatActivity {
         if(usernameValue.isEmpty()){
             username.setError("Field can't be empty");
             return false;
-        }
-//            else if(!isValidUsername(usernameValue)){
-//            username.setError("Username must be at between 3 and 21 characters and can only use _ as special character");
-//            return false;
-//      }
-        else {
+        }else {
             username.setError(null);
             return true;
         }
@@ -52,12 +47,7 @@ public class LoginActivity extends AppCompatActivity {
         if(passwordValue.isEmpty()){
             password.setError("Field can't be empty");
             return false;
-        }
-//        else if(!isValidPassword(passwordValue)){
-//            password.setError("Password must contain minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character");
-//            return false;
-//        }
-        else {
+        }else {
             password.setError(null);
             return true;
         }
@@ -89,7 +79,7 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<String> call, Throwable t) {
-
+                t.printStackTrace();
             }
         });
 

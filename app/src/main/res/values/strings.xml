@@ -35,4 +35,6 @@
     <string name="text">Text</string>
     <string name="jwt">jwt</string>
     <string name="createCommunity">Create community</string>
+    <string name="editPost">Edit post</string>
+    <string name="save">Save</string>
 </resources>
